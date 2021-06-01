@@ -21,6 +21,10 @@ require('http').createServer(function(request, response) {
       console.error('\nError on response', err)
     })
     response.statusCode = statusCode
+    response.setHeader('access-control-allow-origin',      '*')
+    response.setHeader('access-control-allow-headers',     '*')
+    response.setHeader('access-control-allow-methods',     '*')
+    response.setHeader('access-control-allow-credentials', 'true')
     if (answer) {
       response.write(answer)
     }
